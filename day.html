@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .timer-container {
+            margin-top: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #eeeeee;
+            text-transform: uppercase;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7em;
+            letter-spacing: 5px;
+        }
+
+        .days, .hours, .minutes, .seconds {
+            display: inline-block;
+            padding: 20px;
+            width: 100px;
+            border-radius: 5px;
+        }
+
+        .days {
+            background: #6e6e6d;
+        }
+
+        .hours {
+            background: #eeeeee;
+            color: #183059;
+        }
+
+        .minutes {
+            background: #276FBF;
+        }
+
+        .seconds {
+            background: #F0A202;
+        }
+
+        .numbers {
+            font-family: 'Montserrat', sans-serif;
+            color: #f8cfc9;
+            font-size: 4em;
+            text-align: center;
+        }
+
+        .timer-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* 타이머 사이 간격 설정 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="timer-container">
+    <div id="timer" class="timer">
+        <div class="days">
+            <div id="days" class="numbers"> </div>days
+        </div>
+        <div class="hours">
+            <div id="hours" class="numbers"> </div>hours
+        </div>
+        <div class="minutes">
+            <div id="minutes" class="numbers"> </div>minutes
+        </div>
+        <div class="seconds">
+            <div id="seconds" class="numbers"> </div>seconds
+        </div>
+    </div>
+
+    <h2>중간고사</h2>
+
+    <div class="timer-row">
+        <div id="timer2" class="timer">
+            <div class="days">
+                <div id="days2" class="numbers"> </div>days
+            </div>
+        </div>
+        <div id="timer3" class="timer">
+            <div class="days">
+                <div id="days3" class="numbers"> </div>days
+            </div>
+        </div>
+    </div>
+    <h2>모의고사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;단어시험</h2>
+</div>
+
+<script>
+    const myDate = new Date('Oct 07, 2024 00:00:00');
+    const date2 = new Date('Sep 04, 2024 00:00:00'); // 새로운 날짜 1
+    const date3 = new Date('Nov 23, 2024 00:00:00'); // 새로운 날짜 2
+
+    // 첫 번째 타이머 (날짜 + 시간, 분, 초)
+    let timer = setInterval(function() {
+        const today = new Date().getTime();
+        const diff = myDate - today;
+
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+    }, 1000);
+
+    // 두 번째 타이머 (날짜만)
+    let timer2 = setInterval(function() {
+        const today = new Date().getTime();
+        const diff2 = date2 - today;
+        let days2 = Math.floor(diff2 / (1000 * 60 * 60 * 24));
+        document.getElementById("days2").innerHTML = days2;
+    }, 1000);
+
+    // 세 번째 타이머 (날짜만)
+    let timer3 = setInterval(function() {
+        const today = new Date().getTime();
+        const diff3 = date3 - today;
+        let days3 = Math.floor(diff3 / (1000 * 60 * 60 * 24));
+        document.getElementById("days3").innerHTML = days3;
+    }, 1000);
+</script>
+<br><br>
+<img src="8월플래너1.jpg" width=80%>
+</body>
+</html>
+
