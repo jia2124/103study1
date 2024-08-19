@@ -69,10 +69,14 @@
         }
 
         img {
-            width: 80%;
-            max-width: 800px; /* 이미지 최대 너비 설정 */
+            max-width: 100%; /* 이미지가 화면 너비에 맞게 조정 */
+            height: auto; /* 이미지 비율 유지 */
             display: block;
             margin: 20px auto; /* 중앙 정렬 및 위아래 여백 */
+        }
+
+        h2 {
+            margin: 10px 0; /* 제목 간격 조정 */
         }
     </style>
 </head>
@@ -110,6 +114,8 @@
     </div>
     <h2>모의고사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;단어시험</h2>
 </div>
+
+<img src="8월플래너3.jpg" alt="Planner">
 
 <script>
     const myDate = new Date('Oct 07, 2024 00:00:00');
@@ -149,9 +155,6 @@
     }, 1000);
 </script>
 
-<img src="8월플래너3.jpg" alt="Planner">
-
 </body>
 </html>
-
 
